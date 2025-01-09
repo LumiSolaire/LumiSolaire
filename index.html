@@ -18,9 +18,25 @@
             width: 100vw;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             color: white;
+        }
+        .header-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            border: 2px solid #4caf50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #4caf50;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .header-link:hover {
+            background-color: #3e8e41;
+            transform: scale(1.05);
         }
         input, button {
             margin: 10px;
@@ -33,6 +49,7 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
+            text-align: center;
         }
         #result {
             font-size: 24px;
@@ -40,27 +57,20 @@
             margin-top: 20px;
             font-family: 'Georgia', serif;
         }
-        .nav-link, .instagram-link {
+        .instagram-link {
             margin-top: 20px;
             font-size: 16px;
             color: white;
             text-decoration: none;
-            border: 2px solid #4caf50;
+            border: 2px solid #E1306C;
             padding: 10px 20px;
             border-radius: 5px;
-            background-color: #4caf50;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .nav-link:hover, .instagram-link:hover {
-            background-color: #3e8e41;
-            transform: scale(1.05);
-        }
-        .instagram-link {
-            border-color: #E1306C;
             background-color: #E1306C;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .instagram-link:hover {
             background-color: #C13584; /* Plus foncé au survol */
+            transform: scale(1.05);
         }
         .share-button {
             padding: 10px 20px;
@@ -78,6 +88,9 @@
     </style>
 </head>
 <body>
+    <!-- Bouton "Comment fonctionne" en haut à droite -->
+    <a href="comment-fonctionne.html" class="header-link">Comment fonctionne le calendrier</a>
+
     <div class="container">
         <h1>Calendrier LumiSolaire</h1>
         <p>Sélectionnez une date grégorienne pour obtenir la date du calendrier luni-solaire.</p>
@@ -86,7 +99,6 @@
         <p id="result"></p>
     </div>
     <button class="share-button" id="shareButton">Partager</button>
-    <a href="comment-fonctionne.html" class="nav-link">Comment fonctionne le calendrier</a>
     <a id="instagramLink" class="instagram-link">Suivez sur Instagram</a>
 
     <script>
@@ -97,7 +109,7 @@
             "Hexalis", "Septoria", "Octavia", "Novalis", "Descara",
             "Undara", "Douçea"
         ];
-        const daysInMonths = [29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30]; // Durées des mois
+        const daysInMonths = [29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30];
 
         function convertDate() {
             const input = document.getElementById('gregorianDate').value;
