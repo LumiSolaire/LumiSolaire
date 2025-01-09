@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur de Calendrier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAEBAQEBAQEBAQ...');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-family: 'Georgia', serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Convertisseur de Calendrier</h1>
+        <p>Sélectionnez une date grégorienne pour obtenir la date du calendrier luni-solaire.</p>
+        <input type="date" id="gregorianDate" />
+        <button id="convertButton">Convertir</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Configuration de votre calendrier
+        const startGregorianDate = new Date("2025-02-12"); // Début de l'année 1
+        const months = [
+            "Auralis", "Dualith", "Trinova", "Quartis", "Cintara",
+            "Hexalis", "Septoria", "Octavia", "Novalis", "Descara",
+            "Undara", "Douçea"
+        ];
+        const daysInMonths = [29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30]; // Durées des mois
+
+        function convertDate() {
+            const input = document.getElementById('gregorianDate').value;
+            if (!input) {
+                document.getElementById('result').innerText = "Veuillez entrer une date valide.";
+                return;
+            }
+
+            const gregorianDate = new Date(input);
+            if (gregorianDate < startGregorianDate) {
+                document.getElementById('result').innerText =
+                    "La date doit être postérieure au 12 février 2025.";
+                return;
+            }
+
+            // Calcul de la différence en jours
+            const diffTime = gregorianDate - startGregorianDate;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+            // Calcul du jour, mois, année dans votre calendrier
+            let year = 1; // Année commence à 1
+            let dayCount = diffDays;
+            while (dayCount >= 354) { // Année normale (12 mois)
+                dayCount -= 354;
+                year++;
+            }
+
+            let month = 0;
+            while (dayCount >= daysInMonths[month]) {
+                dayCount -= daysInMonths[month];
+                month++;
+            }
+
+            const day = dayCount + 1; // Conversion en jour humain
+
+            // Résultats
+            document.getElementById('result').innerText =
+                `${day.toString().padStart(2, '0')} ${months[month]} ${year}`;
+        }
+
+        document.getElementById("convertButton").addEventListener("click", convertDate);
+    </script>
+</body>
+</html>
