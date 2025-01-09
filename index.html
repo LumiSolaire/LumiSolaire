@@ -16,6 +16,11 @@
             background-position: center center;
             height: 100vh;
             width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
         }
         input, button {
             margin: 10px;
@@ -27,13 +32,26 @@
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
-            margin: auto;
         }
         #result {
             font-size: 24px;
             font-weight: bold;
             margin-top: 20px;
             font-family: 'Georgia', serif;
+        }
+        .share-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        .share-button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -45,6 +63,7 @@
         <button id="convertButton">Convertir</button>
         <p id="result"></p>
     </div>
+    <button class="share-button" id="shareButton">Partager</button>
 
     <script>
         // Configuration de votre calendrier
@@ -96,6 +115,27 @@
         }
 
         document.getElementById("convertButton").addEventListener("click", convertDate);
+
+        // Fonctionnalité du bouton Partager
+        const shareButton = document.getElementById('shareButton');
+        shareButton.addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Convertisseur de Calendrier',
+                    text: 'Découvrez le convertisseur de calendrier luni-solaire.',
+                    url: window.location.href
+                })
+                .then(() => console.log('Partage réussi !'))
+                .catch((error) => console.error('Erreur de partage :', error));
+            } else {
+                alert('Le partage n\'est pas pris en charge sur ce navigateur.');
+            }
+        });
+
+        // Désactiver le bouton si le partage n'est pas supporté
+        if (!navigator.share) {
+            shareButton.disabled = true;
+        }
     </script>
 </body>
 </html>
