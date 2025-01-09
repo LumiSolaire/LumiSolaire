@@ -18,6 +18,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
         }
         .container {
             max-width: 800px;
@@ -32,11 +33,31 @@
             text-align: center;
             color: #4caf50;
         }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
+        h2 {
+            color: #FFD700; /* Doré pour les titres */
         }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        .auralis { color: #FFA500; } /* Orange pour Auralis */
+        .dualith { color: #1E90FF; } /* Bleu pour Dualith */
+        .trinova { color: #32CD32; } /* Vert pour Trinova */
+        .quartis { color: #8B4513; } /* Marron pour Quartis */
+        .cintara { color: #FF69B4; } /* Rose pour Cintara */
+        .hexalis { color: #8A2BE2; } /* Violet pour Hexalis */
+        .septoria { color: #2F4F4F; } /* Gris foncé pour Septoria */
+        .octavia { color: #FF6347; } /* Rouge tomate pour Octavia */
+        .novalis { color: #FFD700; } /* Doré pour Novalis */
+        .descara { color: #DC143C; } /* Rouge carmin pour Descara */
+        .undara { color: #4682B4; } /* Bleu acier pour Undara */
+        .doucea { color: #9400D3; } /* Violet foncé pour Douçea */
+        .orilum { color: #FFFACD; } /* Jaune clair pour Orilum */
         .nav-link {
+            display: block;
             margin: 20px auto;
             max-width: 300px;
             text-align: center;
@@ -48,7 +69,6 @@
             border-radius: 5px;
             background-color: #4caf50;
             transition: background-color 0.3s, transform 0.3s;
-            display: block;
         }
         .nav-link:hover {
             background-color: #3e8e41;
@@ -61,28 +81,25 @@
         <h1>Comment fonctionne le calendrier ?</h1>
         <p>Le 12 février 2025, sous la lumière éclatante d'une pleine lune, naîtra un nouveau calendrier : le calendrier luni-solaire. Ce système unique, profondément connecté aux rythmes naturels, s'inscrit dans un désir de renouer avec la nature et de vivre en harmonie avec les astres.</p>
 
-        <h2>Un calendrier inspiré par la Lune et les saisons</h2>
-        <p>Ce calendrier se distingue par sa structure basée sur les cycles lunaires. Chaque mois débute avec une phase précise de la Lune, offrant un repère clair dans le ciel. Contrairement au calendrier grégorien, il ne suit pas un découpage arbitraire des jours, mais s'aligne sur les rythmes célestes :</p>
-
+        <h2>Les mois du calendrier luni-solaire et leurs significations</h2>
         <ul>
-            <li>Une année standard comprend 12 mois lunaires, alternant entre 29 et 30 jours, pour un total de 354 jours. Cette alternance reflète la durée moyenne d'un cycle lunaire, soit environ 29,53 jours.</li>
-            <li>Tous les 3 ans environ, un 13e mois intercalaire est ajouté. Ce mois spécial compense l’écart entre les mois lunaires et l’année solaire (365 jours), permettant au calendrier de rester synchronisé avec les saisons.</li>
+            <li><strong class="auralis">1. Auralis (inspiré de l'aube et du renouveau) :</strong> Ce mois marque le début de l'année, porteur de lumière et d'énergie. Il évoque l'aube d'un nouveau cycle et symbolise le renouveau.</li>
+            <li><strong class="dualith">2. Dualith (de "dualité", jour et nuit) :</strong> Il représente les forces complémentaires de la nature : ombre et lumière, repos et croissance. Un mois équilibré et harmonieux.</li>
+            <li><strong class="trinova">3. Trinova (de "tri" et "nova", nouvelle croissance) :</strong> Ce mois célèbre la floraison, la créativité, et le réveil de la nature. Parfait pour le début du printemps.</li>
+            <li><strong class="quartis">4. Quartis (inspiré des "quatre" éléments) :</strong> Un mois ancré dans la stabilité, représentant les fondations de la nature : terre, eau, air et feu. Idéal pour consolider.</li>
+            <li><strong class="cintara">5. Cintara (mélange de "cinq" et "tara", étoile en sanskrit) :</strong> Ce mois célèbre la connexion universelle et l'énergie cosmique. Il est une passerelle entre la matière et l'infini.</li>
+            <li><strong class="hexalis">6. Hexalis (de "hex", six, et harmonie) :</strong> Évoque un moment d'équilibre parfait dans l'année, marqué par l'harmonie entre les cycles naturels et humains.</li>
+            <li><strong class="septoria">7. Septoria (inspiré du mystère du chiffre 7 et de l’introspection) :</strong> Ce mois invite à la réflexion et à la contemplation. Un moment de pause pour se recentrer sur l'essentiel.</li>
+            <li><strong class="octavia">8. Octavia (de "huit" et de l'infini) :</strong> Il symbolise la régénération et la continuité. Un mois tourné vers le renouveau et la transmission.</li>
+            <li><strong class="novalis">9. Novalis (inspiré de la transformation et du renouveau) :</strong> Transition vers l’automne, ce mois représente la maturation et les transformations profondes.</li>
+            <li><strong class="descara">10. Descara (de "dix" et du mot "carat", valeur) :</strong> Ce mois est synonyme de plénitude et d'abondance. Il marque la récolte et l'accomplissement.</li>
+            <li><strong class="undara">11. Undara (fusion de "onze" et "aura") :</strong> Une période introspective, tournée vers la préparation et le repos avant les grandes transitions.</li>
+            <li><strong class="doucea">12. Douçea (inspiré de "douze" et de "céleste") :</strong> Ce mois symbolise la fin d’un cycle et la préparation à un nouveau départ. Lien fort avec le ciel et les étoiles.</li>
+            <li><strong class="orilum">13. Orilum (évoquant la lumière et la clarté) :</strong> Mois intercalaire dédié à la lumière, à l’équilibre des cycles et à la constellation d’Orion. Il est ajouté tous les trois ans pour ajuster le calendrier.</li>
         </ul>
 
-        <h2>Un lancement sous une pleine lune</h2>
-        <p>Le choix du 12 février 2025 pour le démarrage de ce calendrier est loin d’être un hasard. Ce jour-là, une pleine lune illuminera le ciel, marquant un moment de plénitude et de renouveau. Ce sera le 1er jour du 1er mois de cette nouvelle ère. Chaque année débutera de la même manière, avec une pleine lune, symbole de cycles qui se renouvellent.</p>
-
-        <h2>Pourquoi adopter ce calendrier ?</h2>
-        <ul>
-            <li><strong>Harmonie avec la nature :</strong> En suivant les cycles lunaires et en intégrant les saisons, ce calendrier offre un rythme plus naturel et intuitif.</li>
-            <li><strong>Clarté et simplicité :</strong> Les mois alternent entre 29 et 30 jours, offrant une structure cohérente et facile à comprendre.</li>
-            <li><strong>Un repère céleste :</strong> Chaque mois débute avec une phase lunaire spécifique, visible dans le ciel, ce qui permet de se reconnecter aux astres.</li>
-            <li><strong>Équilibre saisonnier :</strong> Grâce au mois intercalaire, les cycles lunaires et solaires restent alignés, garantissant que les événements naturels (équinoxes, solstices) conservent leur place.</li>
-        </ul>
-
-        <p>En adoptant ce calendrier, nous nous rapprochons de la nature et des rythmes universels. Il s’agit d’un retour à l’essentiel, où le passage du temps ne se mesure plus uniquement par des chiffres, mais par des phases visibles et palpables dans le ciel.</p>
-
-        <p>Le calendrier luni-solaire, qui débutera le 12 février 2025, est une promesse : celle d’un temps réinventé, plus harmonieux et en phase avec l’univers. Une invitation à lever les yeux vers la Lune et à vivre chaque jour en accord avec les cycles qui nous entourent.</p>
+        <h2>Un calendrier en phase avec la nature</h2>
+        <p>Ces mois, inspirés des chiffres, de la nature et des étoiles, permettent de vivre en harmonie avec les cycles lunaires et solaires. Ils rythment l’année en offrant un équilibre entre réflexion, renouveau et accomplissement. Un système où chaque mois porte une symbolique forte, invitant à vivre au rythme de l’univers.</p>
     </div>
     <a href="index.html" class="nav-link">Retour à l'accueil</a>
 </body>
