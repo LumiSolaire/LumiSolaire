@@ -40,35 +40,20 @@
             margin-top: 20px;
             font-family: 'Georgia', serif;
         }
-        .share-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4caf50;
-            color: white;
-            cursor: pointer;
-        }
-        .share-button:disabled {
-            background-color: gray;
-            cursor: not-allowed;
-        }
-        .instagram-link {
+        .nav-link {
             margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 16px;
             color: white;
             text-decoration: none;
-            border: 2px solid #E1306C; /* Rose Instagram */
+            border: 2px solid #4caf50;
             padding: 10px 20px;
             border-radius: 5px;
-            background-color: #E1306C; /* Rose Instagram */
+            background-color: #4caf50;
             transition: background-color 0.3s, transform 0.3s;
-            display: inline-block;
         }
-        .instagram-link:hover {
-            background-color: #C13584; /* Couleur plus foncée au survol */
-            transform: scale(1.05); /* Légère mise en avant */
+        .nav-link:hover {
+            background-color: #3e8e41;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -80,18 +65,16 @@
         <button id="convertButton">Convertir</button>
         <p id="result"></p>
     </div>
-    <button class="share-button" id="shareButton">Partager</button>
-    <a id="instagramLink" class="instagram-link">Suivez sur Instagram</a>
+    <a href="comment-fonctionne.html" class="nav-link">Comment fonctionne le calendrier</a>
 
     <script>
-        // Configuration de votre calendrier
         const startGregorianDate = new Date("2025-02-12"); // Début de l'année 1
         const months = [
             "Auralis", "Dualith", "Trinova", "Quartis", "Cintara",
             "Hexalis", "Septoria", "Octavia", "Novalis", "Descara",
             "Undara", "Douçea"
         ];
-        const daysInMonths = [29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30]; // Durées des mois
+        const daysInMonths = [29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30];
 
         function convertDate() {
             const input = document.getElementById('gregorianDate').value;
@@ -107,14 +90,12 @@
                 return;
             }
 
-            // Calcul de la différence en jours
             const diffTime = gregorianDate - startGregorianDate;
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-            // Calcul du jour, mois, année dans votre calendrier
-            let year = 1; // Année commence à 1
+            let year = 1;
             let dayCount = diffDays;
-            while (dayCount >= 354) { // Année normale (12 mois)
+            while (dayCount >= 354) {
                 dayCount -= 354;
                 year++;
             }
@@ -125,45 +106,13 @@
                 month++;
             }
 
-            const day = dayCount + 1; // Conversion en jour humain
+            const day = dayCount + 1;
 
-            // Résultats
             document.getElementById('result').innerText =
                 `${day.toString().padStart(2, '0')} ${months[month]} ${year}`;
         }
 
         document.getElementById("convertButton").addEventListener("click", convertDate);
-
-        // Fonctionnalité du bouton Partager
-        const shareButton = document.getElementById('shareButton');
-        shareButton.addEventListener('click', () => {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Calendrier LumiSolaire',
-                    text: 'Découvrez le convertisseur de calendrier luni-solaire.',
-                    url: window.location.href
-                })
-                .then(() => console.log('Partage réussi !'))
-                .catch((error) => console.error('Erreur de partage :', error));
-            } else {
-                alert('Le partage n\'est pas pris en charge sur ce navigateur.');
-            }
-        });
-
-        // Lien vers l'application Instagram ou fallback vers le site
-        document.getElementById('instagramLink').addEventListener('click', function(event) {
-            event.preventDefault();
-            const instagramAppLink = "instagram://user?username=calendrier_lumisolaire";
-            const instagramWebLink = "https://www.instagram.com/calendrier_lumisolaire/?utm_source=qr&r=nametag";
-
-            // Tente d'ouvrir l'application Instagram
-            window.location.href = instagramAppLink;
-
-            // Si l'application ne s'ouvre pas, redirige vers le site web
-            setTimeout(() => {
-                window.location.href = instagramWebLink;
-            }, 1500); // 1.5 secondes avant de rediriger
-        });
     </script>
 </body>
 </html>
