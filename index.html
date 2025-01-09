@@ -53,6 +53,21 @@
             background-color: gray;
             cursor: not-allowed;
         }
+        .instagram-link {
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            border: 2px solid #E1306C; /* Rose Instagram */
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #E1306C; /* Rose Instagram */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .instagram-link:hover {
+            background-color: #C13584; /* Plus foncé au survol */
+            transform: scale(1.05); /* Légère mise en avant */
+        }
     </style>
 </head>
 <body>
@@ -64,6 +79,7 @@
         <p id="result"></p>
     </div>
     <button class="share-button" id="shareButton">Partager</button>
+    <a href="https://www.instagram.com/lesstrorypulse/?utm_source=qr&r=nametag" target="_blank" class="instagram-link">Suivez sur Instagram</a>
 
     <script>
         // Configuration de votre calendrier
